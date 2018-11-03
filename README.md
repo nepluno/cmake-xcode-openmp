@@ -16,7 +16,7 @@ This repository contains a CMakeLists.txt that can generate Xcode projects where
 ![OpenMP can be used with the open source LLVM compiler under Xcode 10 and MacOS 10.14](screenshots/openmp_xcode10_mojave.jpg)
 
 ## Details
-There are two parts in the CMakeLists.txt that are necessary. The first part finds the compiler, include the directory containing OpenMP header and link with the OpenMP library, as following
+There are two parts in the CMakeLists.txt that are necessary. The first part would find the compiler, include the directory containing OpenMP header and link with the OpenMP library, as following
 ```
 set (LLVM_ROOT_DIR "/usr/local/opt/llvm")
 find_package( LLVM )
@@ -29,7 +29,7 @@ if( LLVM_FOUND )
 	set (TESTOMP_LIBRARIES ${TESTOMP_LIBRARIES} ${IOMP5LIB})
 endif( LLVM_FOUND )
 ```
-where the `LLVM_ROOT_DIR` is the directory where the open source LLVM compiler is located, provided by the user.
+where the `LLVM_ROOT_DIR` is the directory at which the open source LLVM compiler is located, provided by the user.
 
 The second part would override the Xcode setting for compilers to use, and turn off the index-while-building feature (introduced since Xcode 9) that is incompatible with the open source LLVM compiler, as following
 ```
