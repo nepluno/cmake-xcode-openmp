@@ -4,7 +4,7 @@ This repository contains a CMakeLists.txt that can generate Xcode projects where
 ## Usage
 1. Install the open source LLVM compiler with [Homebrew](https://brew.sh), with `brew install llvm` command in a terminal.
 2. Download and install [CMake GUI](https://cmake.org/download/).
-3. Point the source code to the folder containing this CMakeLists.txt, and use a subdirectory (say, "build", for example) to build the binaries.
+3. Open CMake GUI, point the source code to the folder containing this CMakeLists.txt, and use a subdirectory (say, "build", for example) to build the binaries.
 4. Configure using Xcode generator. The CMakeLists.txt will use `/usr/local/opt/llvm` as the default root directory for the compiler. If Homebrew has installed the compiler into somewhere else, this root directory should be changed correspondingly.
 5. Generate and open the Xcode project under the subdirectory to build the binaries.
 
