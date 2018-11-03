@@ -14,3 +14,26 @@ This repository contains a CMakeLists.txt that can generate Xcode projects where
 ![CMake GUI after configured](screenshots/cmake_gui.jpg)
 
 ![OpenMP can be used with the open source LLVM compiler under Xcode 10 and MacOS 10.14](screenshots/openmp_xcode10_mojave.jpg)
+
+## Details
+There are two parts in the CMakeLists.txt that are necessary. The first part finds the compiler, include the directory containing OpenMP header and link with the OpenMP library, as following
+```
+set (LLVM_ROOT_DIR "/usr/local/opt/llvm")
+find_package( LLVM )
+if( LLVM_FOUND )
+	include_directories (${LLVM_LIBRARY_DIRS}/clang/${LLVM_VERSION_BASE_STRING}/include)
+	set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp" )
+	find_library(IOMP5LIB
+		NAMES "iomp5" "iomp5md" "libiomp5" "libiomp5md"
+		HINTS ${LLVM_LIBRARY_DIRS})
+	set (TESTOMP_LIBRARIES ${TESTOMP_LIBRARIES} ${IOMP5LIB})
+endif( LLVM_FOUND )
+```
+where the `LLVM_ROOT_DIR` is the directory where the open source LLVM compiler is located, provided by the user.
+
+The second part would override the Xcode setting for compilers to use, and turn off the index-while-building feature (introduced since Xcode 9) that is incompatible with the open source LLVM compiler, as following
+```
+set_target_properties(<your target name> PROPERTIES XCODE_ATTRIBUTE_CC ${LLVM_ROOT_DIR}/bin/clang)
+set_target_properties(<your target name> PROPERTIES XCODE_ATTRIBUTE_CXX ${LLVM_ROOT_DIR}/bin/clang)
+set_target_properties(<your target name> PROPERTIES XCODE_ATTRIBUTE_COMPILER_INDEX_STORE_ENABLE "No")
+```
