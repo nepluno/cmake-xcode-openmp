@@ -9,10 +9,13 @@ This repository contains a CMakeLists.txt that can generate Xcode projects where
 5. Generate and open the Xcode project under the subdirectory to build the binaries.
 
 ## Screenshots
+Select Xcode as the generator.
 ![Select Xcode as the generator](screenshots/xcode_generator.jpg)
 
+CMake GUI after configured
 ![CMake GUI after configured](screenshots/cmake_gui.jpg)
 
+OpenMP can be used with the open source LLVM compiler under Xcode 10 and MacOS 10.14
 ![OpenMP can be used with the open source LLVM compiler under Xcode 10 and MacOS 10.14](screenshots/openmp_xcode10_mojave.jpg)
 
 ## Details
