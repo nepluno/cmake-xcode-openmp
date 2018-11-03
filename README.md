@@ -13,4 +13,4 @@ This repository contains a CMakeLists.txt that can generate Xcode projects where
 
 ![CMake GUI after configured](screenshots/cmake_gui.jpg)
 
-![OpenMP can be used with the open source LLVM compiler under Xcode 10 and MacOS 10.14](screenshots/cmake_gui.jpg)
+![OpenMP can be used with the open source LLVM compiler under Xcode 10 and MacOS 10.14](screenshots/openmp_xcode10_mojave.jpg)
