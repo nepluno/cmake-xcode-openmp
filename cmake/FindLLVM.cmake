@@ -37,7 +37,7 @@ set(llvm_config_names llvm-config-8.0 llvm-config80
                       llvm-config)
 find_program(LLVM_CONFIG
     NAMES ${llvm_config_names}
-    PATHS ${LLVM_ROOT_DIR}/bin NO_DEFAULT_PATH
+    PATHS ${LLVM_ROOT_DIR}/bin /opt/homebrew/opt/llvm/bin NO_DEFAULT_PATH
     DOC "Path to llvm-config tool.")
 find_program(LLVM_CONFIG NAMES ${llvm_config_names})
 

@@ -32,7 +32,7 @@ if (CMAKE_GENERATOR STREQUAL Xcode)
 		include_directories (${LLVM_LIBRARY_DIRS}/clang/${LLVM_VERSION_BASE_STRING}/include)
 		set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp" )
 		find_library(IOMP5LIB
-			NAMES "iomp5" "iomp5md" "libiomp5" "libiomp5md"
+			NAMES "iomp5" "iomp5md" "libiomp5" "libiomp5md" "libomp"
 			HINTS ${LLVM_LIBRARY_DIRS})
 		set (TESTOMP_LIBRARIES ${TESTOMP_LIBRARIES} ${IOMP5LIB})
 	endif( LLVM_FOUND )
